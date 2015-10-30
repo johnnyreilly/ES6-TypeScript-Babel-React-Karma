@@ -3,6 +3,7 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var connect = require('gulp-connect');
 var eslint = require('gulp-eslint');
 var webpack = require('./gulp/webpack');
 var staticFiles = require('./gulp/staticFiles');
@@ -53,4 +54,11 @@ gulp.task('watch', ['delete-dist'], function() {
   gulp.watch(lintSrcs, ['lint']);
   staticFiles.watch();
   tests.watch();
+});
+
+gulp.task('watch-and-serve', ['watch'], function() {
+  connect.server({
+    root: './dist',
+    port: 8080
+  });
 });

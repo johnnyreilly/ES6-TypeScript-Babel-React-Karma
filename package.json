@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start --reporters mocha,junit --single-run --browsers PhantomJS",
+    "serve": "gulp watch-and-serve",
     "watch": "gulp watch",
     "build": "gulp build"
   },
@@ -35,6 +36,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-cached": "^1.1.0",
+    "gulp-connect": "^2.2.0",
     "gulp-cssmin": "^0.1.7",
     "gulp-eslint": "^1.0.0",
     "gulp-if": "^2.0.0",

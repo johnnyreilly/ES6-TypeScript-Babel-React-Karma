@@ -1,28 +1,27 @@
 import * as React from 'react/addons';
-import ModuleStore from '../stores/ModuleStore';
+import GreetingStore from '../stores/GreetingStore';
 import ModuleSelector from './ModuleSelector';
-import * as ModuleActions from '../actions/ModuleActions';
+import * as GreetingActions from '../actions/GreetingActions';
 import ModulesState from '../types/ModuleState';
-import { determineRequiredCldrData, determineRequiredCldrGlobalizeFiles } from '../../../index';
 
 interface State {
-  modulesState: ModulesState
+  targetOfGreeting: string
 }
 
 class App extends React.Component<any, State> {
   constructor(props) {
     super(props);
     this._onChange = this._onChange.bind(this);
-    this._handleSelectionChange = this._handleSelectionChange.bind(this);
+    this._handleTargetOfGreetingChange = this._handleTargetOfGreetingChange.bind(this);
     this.state = this._getStateFromStores();
   }
 
   componentWillMount() {
-    ModuleStore.addChangeListener(this._onChange);
+    GreetingStore.addChangeListener(this._onChange);
   }
 
   componentWillUnmount() {
-    ModuleStore.removeChangeListener(this._onChange);
+    GreetingStore.removeChangeListener(this._onChange);
   }
 
   render() {
@@ -37,7 +36,7 @@ class App extends React.Component<any, State> {
 
         <p>Tell me what <a href="https://github.com/jquery/globalize">Globalize</a> modules you want to use, I&#39;ll tell you what you need and in the order you need it.</p>
 
-        <ModuleSelector modulesState={ modulesState } handleSelectionChange={ this._handleSelectionChange } />
+        <ModuleSelector modulesState={ modulesState } handleSelectionChange={ this._handleTargetOfGreetingChange } />
 
         <div className="row">
           <div className="col-md-6">
@@ -62,12 +61,12 @@ class App extends React.Component<any, State> {
     this.setState(this._getStateFromStores());
   }
 
-  _handleSelectionChange(moduleName) {
-    ModuleActions.moduleChanged(moduleName);
+  _handleTargetOfGreetingChange(greetingTarget) {
+    GreetingActions.greetingChanged(greetingTarget);
   }
 
   _getStateFromStores() {
-    return ModuleStore.getState();
+    return GreetingStore.getState();
   }
 }
 
