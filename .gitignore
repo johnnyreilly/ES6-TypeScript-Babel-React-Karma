@@ -21,6 +21,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+dist/
 
 # Visual Studo 2015 cache/options directory
 .vs/
@@ -32,6 +33,9 @@ bld/
 # NUNIT
 *.VisualState.xml
 TestResult.xml
+
+# JUnit test results
+test-results
 
 # Build Results of an ATL Project
 [Dd]ebugPS/
@@ -129,7 +133,7 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
+# TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
@@ -162,6 +166,7 @@ ClientBin/
 *.publishsettings
 node_modules/
 bower_components/
+typings/
 
 # RIA/Silverlight projects
 Generated_Code/
