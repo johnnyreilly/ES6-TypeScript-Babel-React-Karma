@@ -1,9 +1,9 @@
 import AppDispatcher from '../dispatcher/AppDispatcher';
 import GreetingActionTypes from '../constants/action-types/GreetingActionTypes';
 
-export function greetingChanged(greetingTarget: string) {
+export function greetingChanged(targetOfGreeting: string) {
   AppDispatcher.dispatch({
-    greetingTarget,
+    targetOfGreeting,
     type: GreetingActionTypes.TARGET_OF_GREETING_CHANGED,
   });
 }

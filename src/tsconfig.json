@@ -20,16 +20,14 @@
         "../typings/tsd.d.ts",
         "actions/GreetingActions.ts",
         "components/App.tsx",
-        "components/Module.tsx",
-        "components/ModuleSelector.tsx",
+        "components/WhoToGreet.tsx",
         "constants/action-types/GreetingActionTypes.ts",
         "dependencies.ts",
         "dispatcher/AppDispatcher.ts",
         "main.tsx",
         "stores/FluxStore.ts",
         "stores/GreetingStore.ts",
-        "types/ModuleDetails.ts",
-        "types/ModuleState.ts"
+        "types/GreetingState.ts"
     ],
     "exclude": []
 }

@@ -71,7 +71,7 @@ function bundle(options) {
   if (options.shouldWatch) {
     devCompiler = createDevCompiler();
 
-    gulp.watch('src/demo/**/*', function() { build(); });
+    gulp.watch('src/**/*', function() { build(); });
   }
 
   return new Promise(function(resolve, reject) {

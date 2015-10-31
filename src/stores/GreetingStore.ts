@@ -1,11 +1,7 @@
 import FluxStore from './FluxStore';
 import GreetingActionTypes from '../constants/action-types/GreetingActionTypes';
 import AppDispatcher from '../dispatcher/AppDispatcher';
-import ModulesState from '../types/ModuleState';
-
-interface GreetingState {
-  targetOfGreeting: string;
-}
+import GreetingState from '../types/GreetingState';
 
 class GreeterStore extends FluxStore<GreetingState> {
   constructor(dispatcher) {
@@ -22,11 +18,11 @@ class GreeterStore extends FluxStore<GreetingState> {
     switch(action.type) {
       case GreetingActionTypes.TARGET_OF_GREETING_CHANGED:
         this._state.targetOfGreeting = action.targetOfGreeting;
-        moduleStoreInstance.emitChange();
+        this.emitChange();
         break;
     }
   }
 }
 
-const moduleStoreInstance = new GreeterStore(AppDispatcher);
-export default moduleStoreInstance;
+const greeterStoreInstance = new GreeterStore(AppDispatcher);
+export default greeterStoreInstance;

@@ -1,5 +1,5 @@
 import * as React from 'react/addons';
-import Module from '../../../src/demo/components/Module';
+import Module from '../../../src/components/Module';
 
 const { TestUtils } = React.addons;
 

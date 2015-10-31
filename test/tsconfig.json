@@ -14,8 +14,7 @@
         "sourceMap": true
     },
     "files": [
-        "demo/components/Module.tests.tsx",
-        "lib/index.tests.ts",
+        "components/Module.tests.tsx",
         "../typings/flux/flux.d.ts",
         "../typings/jasmine/jasmine.d.ts",
         "../typings/node/node.d.ts",

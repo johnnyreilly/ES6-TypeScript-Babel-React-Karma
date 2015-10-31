@@ -6,7 +6,7 @@ var glob = require('glob');
 
 function injectIndex(options) {
   function run() {
-    var target = gulp.src('./src/demo/index.html');
+    var target = gulp.src('./src/index.html');
     var sources = gulp.src([
       //'./dist/styles/main*.css',
       './dist/scripts/vendor*.js',

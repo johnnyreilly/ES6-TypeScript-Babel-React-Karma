@@ -7,7 +7,7 @@ var path = require('path');
 module.exports = {
   cache: true,
   entry: {
-    main: './src/demo/main.tsx',
+    main: './src/main.tsx',
     vendor: [
       'react/addons',
       'flux',
