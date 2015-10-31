@@ -1,9 +1,9 @@
 import * as React from 'react/addons';
-import Module from '../../../src/components/Module';
+import App from '../../src/components/App';
 
 const { TestUtils } = React.addons;
 
-describe('Module', () => {
+describe('App', () => {
   let handleSelectionChangeSpy: jasmine.Spy;
   beforeEach(() => {
     handleSelectionChangeSpy = jasmine.createSpy('handleSelectionChange');
