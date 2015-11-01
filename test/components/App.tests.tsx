@@ -1,42 +1,27 @@
 import * as React from 'react/addons';
 import App from '../../src/components/App';
+import WhoToGreet from '../../src/components/WhoToGreet';
+import GreetingStore from '../../src/stores/GreetingStore';
 
 const { TestUtils } = React.addons;
 
 describe('App', () => {
-  let handleSelectionChangeSpy: jasmine.Spy;
-  beforeEach(() => {
-    handleSelectionChangeSpy = jasmine.createSpy('handleSelectionChange');
-  });
-
   it('renders expected HTML', () => {
-    const moduleName = 'some kinda module';
-    const description = 'all about module';
-    const module = render({ moduleName: moduleName, isSelected: true, description: description, handleSelectionChange: handleSelectionChangeSpy});
+    const app = render({ targetOfGreeting: 'Benjamin' });
+    expect(app).toEqual(
+      <div className="container-fluid">
+        <h1>Hello { 'Benjamin' }</h1>
 
-    expect(module.type).toBe('div');
-    expect(module.props.className).toBe('panel panel-success');
-    expect(module.props.style.cursor).toBe('pointer');
-
-    const [ panelHeading, panelBody ] = module.props.children;
-    expect(panelHeading.type).toBe('div');
-
-    const h3 = panelHeading.props.children;
-    expect(h3.type).toBe('h3');
-    expect(h3.props.className).toBe('panel-title');
-    expect(h3.props.children[0]).toBe(moduleName + ' ');
-    expect(h3.props.children[1]).toEqual(<span className="glyphicon glyphicon-ok"></span>);
-
-    expect(panelBody).toEqual(
-      <div className="panel-body">
-        { description }
+        <WhoToGreet targetOfGreeting={ 'Benjamin' } />
       </div>
     );
   });
 
-  function render({ moduleName, isSelected, description, handleSelectionChange}) {
+  function render(state) {
     const shallowRenderer = TestUtils.createRenderer();
-    shallowRenderer.render(<Module moduleName={ moduleName } isSelected={ isSelected } description={ description } handleSelectionChange={ handleSelectionChange } />);
+    spyOn(GreetingStore, 'getState').and.returnValue(state);
+
+    shallowRenderer.render(<App />);
     return shallowRenderer.getRenderOutput();
   }
 });

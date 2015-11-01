@@ -15,6 +15,8 @@
     },
     "files": [
         "components/App.tests.tsx",
+        "components/WhoToGreet.tests.tsx",
+        "stores/GreetingStore.tests.ts",
         "../typings/flux/flux.d.ts",
         "../typings/jasmine/jasmine.d.ts",
         "../typings/node/node.d.ts",
